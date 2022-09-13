@@ -9,22 +9,20 @@ O projeto consiste em um sistema que será responsável por cadastrar os treinos
 ### Aluno:
 
 - ID do aluno - **UUID**
-- CPF do aluno - **String**
-- Nome completo - **String**
-- Data de nascimento - **Date**
-- Telefone - **String**
-- E-mail - **String**
+- Nome completo - **Varchar**
+- Telefone - **Varchar**
+- E-mail - **Varchar**
 
 ### Treino:
 
 - ID do treino - **UUID**
 - ID do aluno - **UUID**
-- Tipo de treino (A, AB…) - **String**
-- Treino A - **String**
-- Treino B - **String**
-- Treino C - **String**
-- Treino D - **String**
-- Treino E - **String**
+- Tipo de treino (A, AB…) - **Varchar**
+- Treino A - **Varchar**
+- Treino B - **Varchar**
+- Treino C - **Varchar**
+- Treino D - **Varchar**
+- Treino E - **Varchar**
 
 ## Requisitos
 
