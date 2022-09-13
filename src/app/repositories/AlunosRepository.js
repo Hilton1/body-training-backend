@@ -11,6 +11,16 @@ class AlunosRepository {
     return rows;
   }
 
+  async findById(id) {
+    const [row] = await db.query(`
+    SELECT *
+    FROM alunos
+    WHERE id = $1
+    `, [id]);
+
+    return row;
+  }
+
   async findByEmail(email) {
     const [row] = await db.query('SELECT * FROM alunos WHERE email = $1', [email]);
     return row;

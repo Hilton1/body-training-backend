@@ -8,9 +8,17 @@ class AlunoController {
     return response.json(alunos);
   }
 
-  // show(request, response) {
+  async show(request, response) {
+    const { id } = request.params;
 
-  // }
+    const aluno = await AlunosRepository.findById(id);
+
+    if (!aluno) {
+      return response.status(404).json({ error: 'Aluno não encontrado!' });
+    }
+
+    return response.json(aluno);
+  }
 
   async store(request, response) {
     const {
