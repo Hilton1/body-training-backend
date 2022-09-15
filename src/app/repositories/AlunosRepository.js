@@ -50,6 +50,11 @@ class AlunosRepository {
 
     return row;
   }
+
+  async delete(id) {
+    const deleteOp = await db.query('DELETE FROM alunos WHERE id = $1', [id]);
+    return deleteOp;
+  }
 }
 
 module.exports = new AlunosRepository();

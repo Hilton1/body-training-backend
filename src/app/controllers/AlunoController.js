@@ -60,9 +60,19 @@ class AlunoController {
     return response.json(aluno);
   }
 
-  // delete(request, response) {
+  async delete(request, response) {
+    const { id } = request.params;
 
-  // }
+    const aluno = await AlunosRepository.findById(id);
+
+    if (!aluno) {
+      return response.status(404).json({ error: 'Aluno não encontrado!' });
+    }
+
+    await AlunosRepository.delete(id);
+
+    return response.sendStatus(204);
+  }
 }
 
 module.exports = new AlunoController();
