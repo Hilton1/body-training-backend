@@ -37,6 +37,19 @@ class AlunosRepository {
 
     return aluno;
   }
+
+  async update(id, { nome, email, celular }) {
+    const [row] = await db.query(`
+      UPDATE alunos
+      SET nome = $1,
+      email = $2,
+      celular = $3
+      WHERE id = $4
+      RETURNING *
+    `, [nome, email, celular, id]);
+
+    return row;
+  }
 }
 
 module.exports = new AlunosRepository();

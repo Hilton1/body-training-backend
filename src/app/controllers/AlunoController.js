@@ -41,9 +41,24 @@ class AlunoController {
     return response.json(aluno);
   }
 
-  // update(request, response) {
+  async update(request, response) {
+    const { nome, email, celular } = request.body;
+    const { id } = request.params;
 
-  // }
+    if (!nome) {
+      return response.status(400).json({ error: 'Nome é obrigatório!' });
+    }
+
+    const alunoExiste = await AlunosRepository.findById(id);
+
+    if (!alunoExiste) {
+      return response.status(404).json({ error: 'Aluno não encontrado!' });
+    }
+
+    const aluno = await AlunosRepository.update(id, { nome, email, celular });
+
+    return response.json(aluno);
+  }
 
   // delete(request, response) {
 
