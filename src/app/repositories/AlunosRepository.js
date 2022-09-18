@@ -32,7 +32,7 @@ class AlunosRepository {
     const aluno = await db.query(`
       INSERT INTO alunos (nome, email, celular)
       values ($1, $2, $3)
-      RETURNING *
+      RETURNING *;
     `, [nome, email, celular]);
 
     return aluno;
