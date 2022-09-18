@@ -12,5 +12,6 @@ router.put('/alunos/:id', AlunoController.update);
 router.delete('/alunos/:id', AlunoController.delete);
 
 router.get('/alunos/:id/treinos', TreinoController.index);
+router.post('/alunos/:id/treinos', TreinoController.store);
 
 module.exports = router;
