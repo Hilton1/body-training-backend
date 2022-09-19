@@ -32,7 +32,6 @@ O projeto consiste em um sistema que será responsável por cadastrar os treinos
 - [x]  Editar aluno
 - [x]  Deletar aluno
 - [x]  Cadastrar treino do aluno
-- [ ]  Editar tipo de treino do aluno (A, AB, ABC, ABCD ou ABCDE)
-- [ ]  Editar treino do aluno
+- [x]  Editar treino do aluno
 - [x]  Listar todo treino do aluno
 - [ ]  Listar treino de acordo com o dia selecionado (A, B, C, D ou E)

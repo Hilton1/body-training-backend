@@ -22,6 +22,10 @@ class TreinoController {
       tipoTreino, a, b, c, d, e,
     } = request.body;
 
+    if (!tipoTreino) {
+      return response.error(400).json({ error: 'Tipo do treino é obrigatório!' });
+    }
+
     const aluno = await AlunosRepository.findById(id);
 
     if (!aluno) {
@@ -35,6 +39,29 @@ class TreinoController {
     }
 
     const treino = await TreinosRepository.create(id, {
+      tipoTreino, a, b, c, d, e,
+    });
+
+    return response.json(treino);
+  }
+
+  async update(request, response) {
+    const { id } = request.params;
+    const {
+      tipoTreino, a, b, c, d, e,
+    } = request.body;
+
+    if (!tipoTreino) {
+      return response.error(400).json({ error: 'Tipo do treino é obrigatório!' });
+    }
+
+    const aluno = await AlunosRepository.findById(id);
+
+    if (!aluno) {
+      return response.status(404).json({ error: 'Aluno não encontrado!' });
+    }
+
+    const treino = await TreinosRepository.update(id, {
       tipoTreino, a, b, c, d, e,
     });
 

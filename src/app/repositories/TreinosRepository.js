@@ -17,6 +17,24 @@ class TreinosRepository {
 
     return treino;
   }
+
+  async update(id, {
+    tipoTreino, a, b, c, d, e,
+  }) {
+    const [row] = await db.query(`
+      UPDATE treinos
+      set tipo_treino = $1,
+      a = $2,
+      b = $3,
+      c = $4,
+      d = $5,
+      e = $6
+      WHERE id_aluno = $7
+      RETURNING *
+    `, [tipoTreino, a, b, c, d, e, id]);
+
+    return row;
+  }
 }
 
 module.exports = new TreinosRepository();
