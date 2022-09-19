@@ -2,7 +2,12 @@ const db = require('../../database');
 
 class TreinosRepository {
   async findAll(id) {
-    const [row] = await db.query('SELECT * FROM treinos WHERE id_aluno = $1', [id]);
+    const [row] = await db.query(`
+      SELECT treinos.*, alunos.nome
+      FROM treinos
+      INNER JOIN alunos ON alunos.id = treinos.id_aluno
+      WHERE treinos.id_aluno = $1
+    `, [id]);
     return row;
   }
 
